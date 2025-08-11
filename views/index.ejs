@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<form action="/create-post-form" method="GET">
+  <button class="add-post-btn" >+ New</button>
+</form>
+
+<div class="posts-container">
+  <% if (posts.length === 0) { %>
+    <p>No posts yet!</p>
+  <% } else { %>
+    <% posts.forEach(post => { %>
+      <div class="post-card">
+        <% if (post.imageUrl) { %>
+          <img src="<%= post.imageUrl %>" alt="<%= post.title %>" />
+        <% } %>
+        <h3><%= post.title %></h3>
+        <p><%= post.description %></p>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+
+<%- include("partials/footer") %>

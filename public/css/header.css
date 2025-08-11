@@ -1,0 +1,85 @@
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px; 
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border: none;
+}
+
+/* Divider under nav */
+.divider {
+  width: 95%;
+  max-width: 95%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0 auto;
+}
+
+/* Brand (h1) styling */
+.navbar .brand {
+  font-size: 29px; 
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.navbar .brand a {
+  text-decoration: none;
+  color: #000;
+}
+
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 48px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666;  
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+
+/* Mobile toggle button */
+.toggle-button {
+  display: none;
+  font-size: 24px; 
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 16px; 
+    position: absolute;
+    top: 64px;
+    right: 32px; 
+    background: #fff;
+    padding: 16px 32px; 
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .toggle-button {
+    display: block;
+  }
+}

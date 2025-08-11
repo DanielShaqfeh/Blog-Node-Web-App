@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+.add-post-btn{
+    position: fixed;
+    justify-content: flex-end;
+    padding: 7px;
+    border-radius: 6px;
+    border-width: 2px;
+    cursor: pointer;
+    right: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: white;
+    color: #666; 
+    transition: all 0.25s ease; 
+}
+.add-post-btn:hover{
+    color: black;
+}
+
+
