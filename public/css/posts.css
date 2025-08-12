@@ -1,16 +1,15 @@
 .posts-container {
   max-width: 960px;
-  margin: 40px auto;
+  margin: 100px auto;
   padding: 0 15px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* fill available space */
+  gap: 60px;
 }
 
 .post-card {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -27,7 +26,6 @@
   object-fit: cover;
 }
 
-/* Post content */
 .post-card h3 {
   font-size: 1.25rem;
   margin: 16px;
@@ -40,4 +38,29 @@
   color: #555;
   line-height: 1.5;
   font-size: 1rem;
+}
+
+/* Smaller devices: reduce gap */
+@media (max-width: 600px) {
+  .posts-container {
+    gap: 20px;
+  }
+}
+
+/* Very small devices: make cards full width */
+@media (max-width: 400px) {
+  .posts-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .post-card h3 {
+    font-size: 1.1rem;
+    margin: 12px;
+  }
+
+  .post-card p {
+    font-size: 0.9rem;
+    margin: 0 12px 12px;
+  }
 }

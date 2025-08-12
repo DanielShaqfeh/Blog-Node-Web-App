@@ -9,7 +9,7 @@ body{
 }
 
 .add-post-btn{
-    position: fixed;
+    position: absolute;
     justify-content: flex-end;
     padding: 7px;
     border-radius: 6px;
