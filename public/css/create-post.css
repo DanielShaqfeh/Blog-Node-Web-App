@@ -68,3 +68,9 @@ textarea {
     box-shadow: none;
 }
 
+/* Smaller devices: reduce gap */
+@media (max-width: 600px) {
+  .create-post-container{
+    margin: 40px 20px;
+  } 
+}

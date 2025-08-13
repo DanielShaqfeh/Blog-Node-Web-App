@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 
 <form action="/create-post-form" method="GET">
-  <button class="add-post-btn" >+ New</button>
+  <button class="add-post-btn">+ New</button>
 </form>
 
 <div class="posts-container">
@@ -13,8 +13,20 @@
         <% if (post.imageUrl) { %>
           <img src="<%= post.imageUrl %>" alt="<%= post.title %>" />
         <% } %>
+        <div class="post-meta">
+          <span class="author-name"><%= post.authorName || 'Unknown' %></span>
+          <span class="dot">•</span>
+          <span class="publish-date"><%= new Date(post.publishDate).toLocaleDateString() %></span>
+        </div>
         <h3><%= post.title %></h3>
-        <p><%= post.description %></p>
+        <p>
+          <%= post.description.split(/\s+/).slice(0, 15).join(" ") %>
+          <% if (post.description.split(/\s+/).length > 15) { %>
+            <span class="ellipsis">...</span>
+          <% } %>
+        </p>
+
+
       </div>
     <% }) %>
   <% } %>

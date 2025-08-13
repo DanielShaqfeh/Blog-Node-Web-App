@@ -38,7 +38,7 @@ app.get("/create-post-form", (req, res) => {
 
 // Handle form submission
 app.post('/create-post', upload.single('image'), (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, authorName  } = req.body;
   let imageUrl = '';
   if (req.file) {
     imageUrl = '/images/' + req.file.filename;
@@ -47,7 +47,9 @@ app.post('/create-post', upload.single('image'), (req, res) => {
     id: posts.length + 1,
     title,
     description,
-    imageUrl
+    authorName,  
+    imageUrl,
+    publishDate: new Date() 
   });
   res.redirect('/');
 });
