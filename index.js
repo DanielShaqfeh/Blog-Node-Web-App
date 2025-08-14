@@ -28,8 +28,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("index", { posts });
+  // Create a separate array with only short descriptions
+  const shortDescriptions = posts.map(post => {
+  const words = post.description.split(/\s+/);
+  const shortDescription = words.slice(0, 15).join(" ");
+  
+  if (words.length > 15) {
+    return shortDescription + "...";
+  }
+  return shortDescription;
 });
+
+
+  res.render("index", { posts, shortDescriptions });
+});
+
+
 
 app.get("/create-post-form", (req, res) => {
   res.render("create-post");

@@ -4,11 +4,11 @@
   <button class="add-post-btn">+ New</button>
 </form>
 
-<div class="posts-container">
-  <% if (posts.length === 0) { %>
-    <p>No posts yet!</p>
-  <% } else { %>
-    <% posts.forEach(post => { %>
+<% if (posts.length === 0) { %>
+  <div class="no-posts">No posts yet!</div>
+<% } else { %>
+  <div class="posts-container">
+    <% posts.forEach((post, index) => { %>
       <div class="post-card">
         <% if (post.imageUrl) { %>
           <img src="<%= post.imageUrl %>" alt="<%= post.title %>" />
@@ -19,17 +19,8 @@
           <span class="publish-date"><%= new Date(post.publishDate).toLocaleDateString() %></span>
         </div>
         <h3><%= post.title %></h3>
-        <p>
-          <%= post.description.split(/\s+/).slice(0, 15).join(" ") %>
-          <% if (post.description.split(/\s+/).length > 15) { %>
-            <span class="ellipsis">...</span>
-          <% } %>
-        </p>
-
-
+        <p><%= shortDescriptions[index] %></p>
       </div>
     <% }) %>
-  <% } %>
-</div>
-
-<%- include("partials/footer") %>
+  </div>
+<% } %>
