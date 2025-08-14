@@ -47,6 +47,17 @@ app.get("/create-post-form", (req, res) => {
   res.render("create-post");
 });
 
+app.get("/post/:id", (req, res) => {
+  const postId = parseInt(req.params.id);
+  const post = posts.find(p => p.id === postId);
+
+  if (!post) {
+    return res.status(404).send("Post not found");
+  }
+
+  res.render("single-post", { post });
+});
+
 // Handle form submission
 app.post('/create-post', upload.single('image'), (req, res) => {
   const { title, description, authorName  } = req.body;

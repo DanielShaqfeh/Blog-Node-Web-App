@@ -1,4 +1,4 @@
-.no-posts {
+.no-posts-title {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -23,7 +23,12 @@
   transition: transform 0.3s ease;
   position: relative;
   gap: 15px;
+  cursor: pointer;
+  text-decoration: none; 
 }
+
+
+
 
 .post-card img {
   width: 100%;

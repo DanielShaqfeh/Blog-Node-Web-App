@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<div class="single-post">
+  <h1><%= post.title %></h1>
+  <div class="post-meta">
+    By <strong><%= post.authorName %></strong> <span class="single-post-dot">•</span> <%= post.publishDate.toDateString() %>
+  </div>
+  <% if (post.imageUrl) { %>
+    <img src="<%= post.imageUrl %>" alt="<%= post.title %>">
+  <% } %>
+  <p><%= post.description %></p>
+  <a href="/" class="btn-primary back-btn">Back to Home</a>
+</div>
+
+
+<%- include("partials/footer") %>

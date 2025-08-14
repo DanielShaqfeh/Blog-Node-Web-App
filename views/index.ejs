@@ -5,22 +5,22 @@
 </form>
 
 <% if (posts.length === 0) { %>
-  <div class="no-posts">No posts yet!</div>
+  <div class="no-posts-title">No posts yet!</div>
 <% } else { %>
   <div class="posts-container">
     <% posts.forEach((post, index) => { %>
-      <div class="post-card">
+      <a href="/post/<%= post.id %>"  class="post-card">
         <% if (post.imageUrl) { %>
           <img src="<%= post.imageUrl %>" alt="<%= post.title %>" />
         <% } %>
         <div class="post-meta">
           <span class="author-name"><%= post.authorName || 'Unknown' %></span>
           <span class="dot">•</span>
-          <span class="publish-date"><%= new Date(post.publishDate).toLocaleDateString() %></span>
+          <span class="publish-date"><%= post.publishDate.toDateString() %>
         </div>
         <h3><%= post.title %></h3>
         <p><%= shortDescriptions[index] %></p>
-      </div>
+      </a>
     <% }) %>
   </div>
 <% } %>
