@@ -43,12 +43,9 @@ app.get("/", (req, res) => {
   res.render("index", { posts, shortDescriptions });
 });
 
-
-
 app.get("/create-post-form", (req, res) => {
   res.render("create-post");
 });
-
 
 // Handle form submission
 app.post('/create-post', upload.single('image'), (req, res) => {
